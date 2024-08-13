@@ -2,31 +2,31 @@ SUPPORTED_VERSION="1.9"
 
 # Key binding options and defaults
 
-default_logging_key="P" # Shift-p
+default_logging_key="l"
 logging_key=$(tmux show-option -gqv "@logging_key")
 logging_key=${logging_key:-$default_logging_key}
 
-default_pane_screen_capture_key="M-p" # Alt-p
+default_pane_screen_capture_key="M-c" # Alt-c
 pane_screen_capture_key=$(tmux show-option -gqv "@screen-capture-key")
 pane_screen_capture_key=${pane_screen_capture_key:-$default_pane_screen_capture_key}
 
-default_save_complete_history_key="M-P" # Alt-Shift-p
+default_save_complete_history_key="L" # Shift-l
 save_complete_history_key=$(tmux show-option -gqv "@save-complete-history-key")
 save_complete_history_key=${save_complete_history_key:-$default_save_complete_history_key}
 
-default_clear_history_key="M-c" # Alt-c
+default_clear_history_key="M-C" # Alt-Shift-c
 clear_history_key=$(tmux show-option -gqv "@clear-history-key")
 clear_history_key=${clear_history_key:-$default_clear_history_key}
 
 # General options
-filename_suffix="#{session_name}-#{window_index}-#{pane_index}-%Y%m%dT%H%M%S.log"
+filename_suffix="%Y-%m-%d_%H:%M:%S_#{session_name}-#{window_name}-#{pane_index}.log"
 
 # Logging options
 default_logging_path="$HOME"
 logging_path=$(tmux show-option -gqv "@logging-path")
 logging_path=${logging_path:-$default_logging_path}
 
-default_logging_filename="tmux-${filename_suffix}"
+default_logging_filename="${filename_suffix}"
 logging_filename=$(tmux show-option -gqv "@logging-filename")
 logging_filename=${logging_filename:-$default_logging_filename}
 
